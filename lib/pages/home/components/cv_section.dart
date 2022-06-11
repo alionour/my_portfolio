@@ -71,7 +71,7 @@ class CvSection extends StatelessWidget {
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: Text(
-                    "DOWNLOAD CV",
+                    "DOWNLOAD RESUME",
                     style: GoogleFonts.oswald(
                       color: kPrimaryColor,
                       fontWeight: FontWeight.w900,

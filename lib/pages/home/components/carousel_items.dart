@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portfolio/models/carousel_item_model.dart';
 import 'package:web_portfolio/utils/constants.dart';
 
@@ -13,7 +14,7 @@ List<CarouselItemModel> carouselItems = List.generate(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "PRODUCT DESIGNER",
+            "Full Stack Developer",
             style: GoogleFonts.oswald(
               color: kPrimaryColor,
               fontWeight: FontWeight.w900,
@@ -24,7 +25,7 @@ List<CarouselItemModel> carouselItems = List.generate(
             height: 18.0,
           ),
           Text(
-            "MICHELE\nHARRINGTON",
+            "ALi\nNour El Din",
             style: GoogleFonts.oswald(
               color: Colors.white,
               fontSize: 40.0,
@@ -36,7 +37,7 @@ List<CarouselItemModel> carouselItems = List.generate(
             height: 10.0,
           ),
           Text(
-            "Full-stack developer, based in Barcelona",
+            "Full-stack Mobile developer, based in Suhaj, Egypt",
             style: TextStyle(
               color: kCaptionColor,
               fontSize: 15.0,
@@ -50,7 +51,7 @@ List<CarouselItemModel> carouselItems = List.generate(
             child: Wrap(
               children: [
                 Text(
-                  "Need a full custom website?",
+                  "Need a full custom website, mobile or desktop application?",
                   style: TextStyle(
                     color: kCaptionColor,
                     fontSize: 15.0,
@@ -58,11 +59,11 @@ List<CarouselItemModel> carouselItems = List.generate(
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: _linkedIn,
                   child: MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: Text(
-                      " Got a project? Let's talk.",
+                      "Got a project? Let's talk.",
                       style: TextStyle(
                         height: 1.5,
                         color: Colors.white,
@@ -112,3 +113,14 @@ List<CarouselItemModel> carouselItems = List.generate(
     ),
   ),
 );
+
+/// launches the linkedin profile
+/// checks if _url can be launched
+/// if it can, it launches it
+void _linkedIn() async {
+  String _url = "https://www.linkedin.com/in/alionour/";
+  final uri = Uri.parse(_url);
+  if (await canLaunchUrl(uri)) {
+    launchUrl(uri);
+  }
+}
