@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_portfolio/models/header_item.dart';
+import 'package:web_portfolio/pages/home/components/cv_section.dart';
+import 'package:web_portfolio/pages/home/home.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/globals.dart';
 import 'package:web_portfolio/utils/screen_helper.dart';
 
 List<HeaderItem> headerItems = [
   HeaderItem(
-    title: "HOME",
-    onTap: () {},
+    title: "Resume",
+    onTap: () {
+      homeItemScrollController.scrollTo(
+          index: homeWidgets.indexWhere((element) => element is CvSection),
+          duration: Duration(milliseconds: 500));
+    },
   ),
   HeaderItem(title: "MY INTRO", onTap: () {}),
   HeaderItem(title: "SERVICES", onTap: () {}),
@@ -149,10 +153,10 @@ class Header extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 // Lets open drawer using global key
-                Globals.scaffoldKey.currentState.openEndDrawer();
+                Globals.scaffoldKey.currentState?.openEndDrawer();
               },
               child: Icon(
-                FlutterIcons.menu_fea,
+                Icons.menu,
                 color: Colors.white,
                 size: 28.0,
               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:web_portfolio/pages/home/components/carousel.dart';
 import 'package:web_portfolio/pages/home/components/cv_section.dart';
 import 'package:web_portfolio/pages/home/components/education_section.dart';
@@ -13,6 +13,8 @@ import 'package:web_portfolio/pages/home/components/testimonial_widget.dart';
 import 'package:web_portfolio/pages/home/components/website_ad.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/globals.dart';
+
+final ItemScrollController homeItemScrollController = ItemScrollController();
 
 class Home extends StatelessWidget {
   @override
@@ -70,48 +72,53 @@ class Home extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                child: Header(),
-              ),
-              Carousel(),
-              SizedBox(
-                height: 20.0,
-              ),
-              CvSection(),
-              IosAppAd(),
-              SizedBox(
-                height: 70.0,
-              ),
-              WebsiteAd(),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 28.0),
-                child: PortfolioStats(),
-              ),
-              SizedBox(
-                height: 50.0,
-              ),
-              EducationSection(),
-              SizedBox(
-                height: 50.0,
-              ),
-              SkillSection(),
-              SizedBox(
-                height: 50.0,
-              ),
-              Sponsors(),
-              SizedBox(
-                height: 50.0,
-              ),
-              TestimonialWidget(),
-              Footer(),
-            ],
-          ),
+        child: ScrollablePositionedList.builder(
+          itemScrollController: homeItemScrollController,
+          itemCount: homeWidgets.length,
+          itemBuilder: (BuildContext context, int index) {
+            return homeWidgets[index];
+          },
         ),
       ),
     );
   }
 }
+
+final homeWidgets = [
+  Container(
+    child: Header(),
+  ),
+  Carousel(),
+  SizedBox(
+    height: 20.0,
+  ),
+  CvSection(),
+  IosAppAd(),
+  SizedBox(
+    height: 70.0,
+  ),
+  WebsiteAd(),
+  Padding(
+    padding: const EdgeInsets.symmetric(vertical: 28.0),
+    child: PortfolioStats(),
+  ),
+  SizedBox(
+    height: 50.0,
+  ),
+  EducationSection(),
+  SizedBox(
+    height: 50.0,
+  ),
+  SkillSection(),
+  SizedBox(
+    height: 50.0,
+  ),
+  Sponsors(),
+  SizedBox(
+    height: 50.0,
+  ),
+  TestimonialWidget(),
+  Footer(
+    key: ValueKey('footerKey'),
+  ),
+];

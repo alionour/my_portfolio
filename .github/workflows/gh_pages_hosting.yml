@@ -1,0 +1,54 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI Ali Nour Portfolio
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    name: Build Web
+    env:
+      my_secert: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable' # or: 'beta' or 'master'
+      - run: flutter --version
+      - run: flutter config --enable-web
+      - run: flutter pub get
+      - run: flutter build web --release
+      - run: |
+          cd build/web
+          git init
+          # in line 24 and 25 type your email id and username respectively
+          #git config --global user.email email_ids
+          #git config --global user.name username 
+          git config --global user.email ${{secrets.email}}
+          git config --global user.name ${{secrets.username}}
+          git status
+          # in line 30 after @ add your repo link  
+          # git remote add origin https://${{secrets.hosting_secret}}@repo_link
+          git remote add origin https://${{secrets.PERSONAL_ACCESS_TOKEN}}@github.com/alionour/my_portfolio.git
+          git checkout -b gh-pages
+          git add --all
+          git commit -m "🔧 build(Web Build): Portfolio Web Update
+
+          Updated portfolio site"
+          git push origin gh-pages -f
