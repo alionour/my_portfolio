@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_framework/responsive_row_column.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:web_portfolio/models/carousel_item_model.dart';
 import 'package:web_portfolio/utils/constants.dart';
@@ -106,10 +107,61 @@ List<CarouselItemModel> carouselItems = List.generate(
       ),
     ),
     image: Container(
-      child: Image.asset(
-        "assets/person.png",
-        fit: BoxFit.contain,
+      child: ResponsiveRowColumn(
+        layout: ResponsiveRowColumnType.COLUMN,
+        children: [
+          ResponsiveRowColumnItem(
+            child: ResponsiveRowColumn(
+              layout: ResponsiveRowColumnType.ROW,
+              children: [
+                ResponsiveRowColumnItem(
+                  child: Flexible(
+                    child: Image.asset(
+                      "assets/SleepTimer.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                ResponsiveRowColumnItem(
+                  child: Flexible(
+                    child: Image.asset(
+                      "assets/Tunable.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ResponsiveRowColumnItem(
+            child: ResponsiveRowColumn(
+              layout: ResponsiveRowColumnType.ROW,
+              children: [
+                ResponsiveRowColumnItem(
+                  child: Flexible(
+                    child: Image.asset(
+                      "assets/Millionaire.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                ResponsiveRowColumnItem(
+                  child: Flexible(
+                    child: Image.asset(
+                      "assets/DentalClinic.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
+      // child: Image.asset(
+      //   "assets/alinour.png",
+      //   fit: BoxFit.contain,
+      // ),
     ),
   ),
 );

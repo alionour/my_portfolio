@@ -8,23 +8,27 @@ import 'package:web_portfolio/utils/screen_helper.dart';
 List<Skill> skills = [
   Skill(
     skill: "Dart",
-    percentage: 62,
+    percentage: 85,
   ),
   Skill(
     skill: "Javascript",
+    percentage: 60,
+  ),
+  Skill(
+    skill: "Fluuter",
+    percentage: 85,
+  ),
+  Skill(
+    skill: "CI/CD",
+    percentage: 75,
+  ),
+  Skill(
+    skill: "Testing",
     percentage: 80,
   ),
   Skill(
-    skill: "PHP",
-    percentage: 78,
-  ),
-  Skill(
-    skill: "Python",
-    percentage: 90,
-  ),
-  Skill(
-    skill: "GoLang",
-    percentage: 40,
+    skill: "Nodejs",
+    percentage: 80,
   ),
 ];
 
@@ -52,16 +56,16 @@ class SkillSection extends StatelessWidget {
                   ? Axis.vertical
                   : Axis.horizontal,
               children: [
-                Expanded(
-                  flex: ScreenHelper.isMobile(context) ? 0 : 2,
-                  child: Image.asset(
-                    "assets/person_small.png",
-                    width: 300.0,
-                  ),
-                ),
-                SizedBox(
-                  width: 50.0,
-                ),
+                // Expanded(
+                //   flex: ScreenHelper.isMobile(context) ? 0 : 2,
+                //   child: Image.asset(
+                //     "assets/alinour.png",
+                //     width: 300.0,
+                //   ),
+                // ),
+                // SizedBox(
+                //   width: 50.0,
+                // ),
                 Expanded(
                   flex: ScreenHelper.isMobile(context) ? 0 : 4,
                   child: Column(
@@ -77,17 +81,17 @@ class SkillSection extends StatelessWidget {
                           height: 1.3,
                         ),
                       ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(
-                        "This is all the skills listed below more will be added in due time. This is all the skills listed below more will be added in due time.",
-                        style: TextStyle(
-                          color: kCaptionColor,
-                          height: 1.5,
-                          fontSize: 16.0,
-                        ),
-                      ),
+                      // SizedBox(
+                      //   height: 10.0,
+                      // ),
+                      // Text(
+                      //   "This is all the skills listed below more will be added in due time. This is all the skills listed below more will be added in due time.",
+                      //   style: TextStyle(
+                      //     color: kCaptionColor,
+                      //     height: 1.5,
+                      //     fontSize: 16.0,
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 15.0,
                       ),
