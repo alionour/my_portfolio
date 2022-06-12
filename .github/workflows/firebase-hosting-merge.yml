@@ -12,13 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: >-
-          sudo snap install flutter --classic && flutter channel beta && flutter
-          config --enable-web && flutter build web
+          sudo snap install flutter --classic && flutter channel stable &&
+          flutter config --enable-web && flutter build web --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEB_PORTFOLIO_DDD55 }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_3D315 }}'
           channelId: live
-          projectId: web-portfolio-ddd55
-        env:
-          FIREBASE_CLI_PREVIEWS: hostingchannels
+          projectId: portfolio-3d315
