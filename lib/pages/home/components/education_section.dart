@@ -6,29 +6,24 @@ import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/screen_helper.dart';
 
 final List<Education> educationList = [
+  // Education(
+  //   description:
+  //       "This is a sample education and details about it is stated below. This is a sample education and details about it is stated below",
+  //   linkName: "www.flutterpanda.com",
+  //   period: "2019 - PRESENT",
+  // ),
   Education(
     description:
-        "This is a sample education and details about it is stated below. This is a sample education and details about it is stated below",
-    linkName: "www.flutterpanda.com",
-    period: "2019 - PRESENT",
+        "Bachelor of Physical Therapy from the University of Bani-Suef at Bani-Suef Egypt.",
+    period: "2014 - 2020",
   ),
   Education(
-    description:
-        "This is a sample education and details about it is stated below.This is a sample education and details about it is stated below",
-    linkName: "www.flutterpanda.com",
-    period: "2018 - 2019",
+    description: "Advanced Web Full Stack Backend Nanodegree Course",
+    period: "March 2022 - June 2022",
   ),
   Education(
-    description:
-        "This is a sample education and details about it is stated below. This is a sample education and details about it is stated below",
-    linkName: "www.flutterpanda.com",
-    period: "2017 - 2018",
-  ),
-  Education(
-    description:
-        "This is a sample education and details about it is stated below. This is a sample education and details about it is stated below",
-    linkName: "www.flutterpanda.com",
-    period: "2016 - 2017",
+    description: "Flutter Development Hassan Flaih Course at Udemy",
+    period: "April 2021 - July 2021",
   ),
 ];
 
@@ -119,18 +114,19 @@ class EducationSection extends StatelessWidget {
                                 SizedBox(
                                   height: 20.0,
                                 ),
-                                MouseRegion(
-                                  cursor: SystemMouseCursors.click,
-                                  child: GestureDetector(
-                                    onTap: () {},
-                                    child: Text(
-                                      education.linkName,
-                                      style: TextStyle(
-                                        color: Colors.white,
+                                if (education.linkName != null)
+                                  MouseRegion(
+                                    cursor: SystemMouseCursors.click,
+                                    child: GestureDetector(
+                                      onTap: () {},
+                                      child: Text(
+                                        education.linkName!,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
                                 SizedBox(
                                   height: 40.0,
                                 )
