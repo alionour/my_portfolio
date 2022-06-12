@@ -1,11 +1,11 @@
 {
-    "name": "web_portfolio",
-    "short_name": "web_portfolio",
+    "name": "Ali Nour Portfolio",
+    "short_name": "Ali Nour Portfolio",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Ali Nour Portdolio",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
